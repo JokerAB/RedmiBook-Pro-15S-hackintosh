@@ -20,17 +20,11 @@ IntelBTPatcher |
 BlueToolFixup | 
 NootedRed | 
 
-> 当系统完全安装完毕时（系统激活完毕）将以上关闭驱动再次打开，如果你是5800H只需要修改AMD内核补丁即可。当前`OpenCore 1.0.1`
+> 当系统完全安装完毕时（系统激活完毕）将以上关闭驱动再次打开，如果你是5600H只需要修改AMD内核补丁即可。当前`OpenCore 1.0.2`
 
 
 ## 睡眠问题
-通过ACPI补丁可以开启S3睡眠，但是会有些问题（睡眠唤醒后合盖无法息屏，第二个C口外界设备会导致秒醒）睡眠日志如下
-```text
-2024-09-23 17:54:12.848985+0800 0x79       Default     0x0                  0      0    kernel: (AppleACPIPlatform) AppleACPIPlatformPower Wake reason: GP17
-2024-09-23 17:55:36.573614+0800 0x79       Default     0x0                  0      0    kernel: (AppleACPIPlatform) AppleACPIPlatformPower Wake reason: GP17
-2024-09-23 17:55:36.573615+0800 0x79       Default     0x0                  0      0    kernel: (AppleACPIPlatform) AppleACPIPlatformPower Wake reason: GP17(使用SSDT-GPRW后这个GP17会变为?)
-```
-当前问题尚未能解决，如果改问题解决请联系我。
+通过ACPI补丁可以开启S3睡眠，但是会有些问题（睡眠唤醒后合盖无法息屏），当前问题尚未能解决，如果改问题解决请联系我。
 
 
 ACPI文件 | 作用
@@ -54,3 +48,5 @@ SSDT-BTIF.aml | 开启S3睡眠并修复电池状态显示
 sudo cp -r AMDMicrophone.kext /Library/Extensions/
 ```
 
+## 感谢
+`Lynx`、[维奇](https://github.com/weachy) 提供的帮助
